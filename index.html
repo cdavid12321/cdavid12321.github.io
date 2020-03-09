@@ -8,10 +8,10 @@
     <title>Currency Exchange</title>
 </head>
 <body>
-<p>userId: <span id="userId"></span></p>
-<p>displayName: <span id="displayName"></span></p>
-<p>pictureUrl: <span id="pictureUrl"></span></p>
-<p>statusMessage: <span id="statusMessage"></span></p>
+<p>userId: <span id="userIdfi"></span></p>
+<p>displayName: <span id="displayNamefi"></span></p>
+<p>pictureUrl: <span id="pictureUrlfi"></span></p>
+<p>statusMessage: <span id="statusMessagefi"></span></p>
 </body>
 <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 <script>
@@ -22,9 +22,9 @@
 	  .then(() => {
 		// Start to use liff's api
 		liff.getProfile().then(profile => {
-			document.getElementById('userId').textContent = profile.userId
-			document.getElementById('displayName').textContent = profile.displayName
-			document.getElementById('statusMessage').textContent = profile.statusMessage
+			document.getElementById('userIdfi').textContent = profile.userId
+			document.getElementById('displayNamefi').textContent = profile.displayName
+			document.getElementById('statusMessagefi').textContent = profile.statusMessage
 	  })
 	  .catch((err: LiffError) => {
 		// Error happens during initialization
