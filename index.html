@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Currency Exchange</title>
+</head>
+<body>
+<p>userId: <span id="userId"></span></p>
+<p>displayName: <span id="displayName"></span></p>
+<p>pictureUrl: <span id="pictureUrl"></span></p>
+<p>statusMessage: <span id="statusMessage"></span></p>
+</body>
+<script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script>
+	liff
+	  .init({
+		liffId: "1566533074-W8GValqo" // use own liffId
+	  })
+	  .then(() => {
+		// Start to use liff's api
+		liff.getProfile().then(profile => {
+			document.getElementById('userId').innerHTML = profile.userId
+			document.getElementById('displayName').innerHTML = profile.displayName
+			document.getElementById('pictureUrl').innerHTML = profile.pictureUrl
+			document.getElementById('statusMessage').innerHTML = profile.statusMessage
+	  })
+	  .catch((err: LiffError) => {
+		// Error happens during initialization
+		console.log(err.code, err.message);
+	  });
+</script>
+
+</html>
