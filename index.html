@@ -24,7 +24,6 @@
 		liff.getProfile().then(profile => {
 			document.getElementById('userId').textContent = profile.userId
 			document.getElementById('displayName').textContent = profile.displayName
-			document.getElementById('pictureUrl').textContent = profile.pictureUrl
 			document.getElementById('statusMessage').textContent = profile.statusMessage
 	  })
 	  .catch((err: LiffError) => {
