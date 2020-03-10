@@ -117,9 +117,17 @@
         }
 
         function initializeApp() {
-            //displayLiffData();
+            displayLiffData();
             //displayIsInClientInfo();
             registerButtonHandlers();
+        }
+
+        function displayLiffData() {
+            document.getElementById('browserLanguage').textContent = liff.getLanguage();
+            document.getElementById('sdkVersion').textContent = liff.getVersion();
+            document.getElementById('isInClient').textContent = liff.isInClient();
+            document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
+            document.getElementById('deviceOS').textContent = liff.getOS();
         }
 
         function registerButtonHandlers() {
