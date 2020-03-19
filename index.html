@@ -184,9 +184,9 @@
             document.getElementById('scanQrCodeButton').addEventListener('click', function () {
                 liff.scanCode().then(result => {
                     // e.g. result = { value: "Hello LIFF app!" }
-                    const stringifiedResult = JSON.stringify(result);
-                    const stringifiedResult1 = JSON.parse(stringifiedResult);
-                    document.getElementById('msg-uid').value = stringifiedResult1.value;
+                    var myJSON = JSON.stringify(result);
+                    var myJSON2 = JSON.parse(myJSON);
+                    document.getElementById('msg-uid').value = myJSON2.value;
                 }).catch(err => {
                     document.getElementById('msg-uid').value = "scanCode failed!";
                 });
@@ -221,7 +221,7 @@
                 <input class="form-control" type="text" id="msg-pho" value="" /><br />
                 <label>溫度:</label>
                 <input class="form-control" type="text" id="msg-temp" value="" /><br />
-                <label>備註:</label>
+                <label>備註1:</label>
                 <input class="form-control" type="text" id="msg-special" value="" /><br />
                 <button class="btn btn-primary" id="ButtonSendMsg" >回報發燒</button><br /><br>
             </div>
