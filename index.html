@@ -180,18 +180,14 @@
             });
             // scanCode call
             document.getElementById('scanQrCodeButton').addEventListener('click', function () {
-                if (!liff.isInClient()) {
-                    sendAlertIfNotInClient();
-                } else {
-                    liff.scanCode().then(result => {
-                        // e.g. result = { value: "Hello LIFF app!" }
-                        const stringifiedResult = JSON.stringify(result);
-                        document.getElementById('msg-uid').textContent = stringifiedResult;
-                        toggleQrCodeReader();
-                    }).catch(err => {
-                        document.getElementById('msg-uid').textContent = "scanCode failed!";
-                    });
-                }
+                liff.scanCode().then(result => {
+                    // e.g. result = { value: "Hello LIFF app!" }
+                    const stringifiedResult = JSON.stringify(result);
+                    document.getElementById('msg-uid').textContent = stringifiedResult;
+                    toggleQrCodeReader();
+                }).catch(err => {
+                    document.getElementById('msg-uid').textContent = "scanCode failed!";
+                });
             });
 
 
@@ -202,22 +198,7 @@
         /**
          * Toggle scanCode result field
          */
-        function toggleQrCodeReader() {
-            toggleElement('scanQr');
-        }
 
-        /**
-         * Toggle specified element
-         * @param {string} elementId The ID of the selected element
-         */
-        function toggleElement(elementId) {
-            const elem = document.getElementById(elementId);
-            if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
-                elem.style.display = 'none';
-            } else {
-                elem.style.display = 'block';
-            }
-        }
     </script>
     <div id="liffAppContent">
     <!-- ACTION BUTTONS -->
@@ -236,9 +217,9 @@
                 <input class="form-control" type="text" id="msg-pho" value="" /><br />
                 <label>溫度:</label>
                 <input class="form-control" type="text" id="msg-temp" value="" /><br />
-                <label>備註:</label>
+                <label>備註2:</label>
                 <input class="form-control" type="text" id="msg-special" value="" /><br />
-                <button class="btn btn-primary" id="ButtonSendMsg"  >回報發燒</button>
+                <button class="btn btn-primary" id="ButtonSendMsg" >回報發燒</button>
             </div>
     </div>
     <!-- LIFF INIT ERROR -->
