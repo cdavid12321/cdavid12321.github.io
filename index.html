@@ -8,7 +8,9 @@
         html {
             font-size: 11px;
         }
-
+        body {
+            background-color:#71efe3;
+        }
         table {
             width: 100%;
             table-layout: fixed;
@@ -40,7 +42,7 @@
         }
 
         #code-block {
-            background-color: #eee;
+            background-color: #71efe3;
             border: 1px solid #999;
             display: block;
             padding: 20px;
@@ -203,24 +205,23 @@
     </script>
     
     <div id="liffAppContent">
-    <div class="container">
+    <div  style="background-color:#71efe3" class="container">
     <!-- ACTION BUTTONS -->
-    <div class="buttonGroup">
-        <div class="buttonRow">
+    <br>
+            <div>
             <button class="btn btn-primary" id="scanQrCodeButton">掃同學的QRcode(限Android手機)</button>
-        </div>
-    </div>
-   
-            <div class="col-md-6" style="margin:5px">
+            </div>
+            <br>
+            <div class="col-md-5">
                 <label>uid:</label>
-                <input class="form-control" type="text" id="msg-uid" value="" /><br />
+                <input class="form-control" type="text" id="msg-uid"/><br />
                 <label>學號:</label>
                 <input class="form-control" type="text" id="msg-num" value="" /><br />
                 <label>電話:</label>
                 <input class="form-control" type="text" id="msg-pho" value="" /><br />
                 <label>溫度:</label>
                 <input class="form-control" type="text" id="msg-temp" value="" /><br />
-                <label>備註2:</label>
+                <label>備註:</label>
                 <input class="form-control" type="text" id="msg-special" value="" /><br />
                 <button class="btn btn-primary" id="ButtonSendMsg" >回報發燒</button>
             </div>
