@@ -184,8 +184,9 @@
             document.getElementById('scanQrCodeButton').addEventListener('click', function () {
                 liff.scanCode().then(result => {
                     // e.g. result = { value: "Hello LIFF app!" }
-                    const stringifiedResult = JSON.parse(result);
-                    document.getElementById('msg-uid').value = stringifiedResult.value;
+                    const stringifiedResult = JSON.stringify(result);
+                    const stringifiedResult1 = JSON.parse(stringifiedResult);
+                    document.getElementById('msg-uid').value = stringifiedResult1.value;
                 }).catch(err => {
                     document.getElementById('msg-uid').value = "scanCode failed!";
                 });
