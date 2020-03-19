@@ -186,7 +186,6 @@
                     // e.g. result = { value: "Hello LIFF app!" }
                     const stringifiedResult = JSON.stringify(result);
                     document.getElementById('msg-uid').value = stringifiedResult;
-                    toggleQrCodeReader();
                 }).catch(err => {
                     document.getElementById('msg-uid').value = "scanCode failed!";
                 });
