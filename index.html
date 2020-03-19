@@ -151,8 +151,6 @@
          * Initialize the app by calling functions handling individual app components
          */
         function initializeApp() {
-            displayLiffData();
-            displayIsInClientInfo();
             registerButtonHandlers();
 
             // check if the user is logged in/out, and disable inappropriate button
@@ -169,13 +167,6 @@
          * Register event handlers for the buttons displayed in the app
          */
         function registerButtonHandlers() {
-            // openWindow call
-            document.getElementById('openWindowButton').addEventListener('click', function () {
-                liff.openWindow({
-                    url: 'https://line.me',
-                    external: true
-                });
-            });
             $('#ButtonSendMsg').click(function () {
                 liff.sendMessages([
                  {
@@ -187,7 +178,6 @@
                    alert('done');
                })
             });
-
             // scanCode call
             document.getElementById('scanQrCodeButton').addEventListener('click', function () {
                 if (!liff.isInClient()) {
@@ -199,7 +189,7 @@
                         document.getElementById('msg-uid').textContent = stringifiedResult;
                         toggleQrCodeReader();
                     }).catch(err => {
-                        document.getElementById('scanQrField').textContent = "scanCode failed!";
+                        document.getElementById('msg-uid').textContent = "scanCode failed!";
                     });
                 }
             });
