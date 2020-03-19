@@ -202,16 +202,22 @@
                 href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF app</a>.
         </p>
     </div>
-            <div class="row container">
+            <div class="container">
             <div class="col-md-6" style="margin:5px">
-                <label>user id:</label>
-                <input class="form-control" type="text" id="userid" />   <br />
-                <label>QueryString:</label>
-                <input class="form-control" type="text" id="QueryString" /><br />
-                <button class="btn btn-primary" id="ButtonGetProfile">Get Profile</button>
-                <input class="form-control" type="text" id="UserInfo" /><br />
-                <label>要傳送的訊息:</label>
-                <input class="form-control" type="text" id="msg" value="測試" /><br />
+                <label>uid:</label>
+                <input class="form-control" type="text" id="msg-uid" value="" /><br />
+                <button class="btn btn-primary" id="ButtonSendMsg"  >要傳送的訊息</button>
+                <label>學號:</label>
+                <input class="form-control" type="text" id="msg-num" value="" /><br />
+                <button class="btn btn-primary" id="ButtonSendMsg"  >要傳送的訊息</button>
+                <label>電話:</label>
+                <input class="form-control" type="text" id="msg-pho" value="" /><br />
+                <button class="btn btn-primary" id="ButtonSendMsg"  >要傳送的訊息</button>
+                <label>溫度:</label>
+                <input class="form-control" type="text" id="msg-temp" value="" /><br />
+                <button class="btn btn-primary" id="ButtonSendMsg"  >要傳送的訊息</button>
+                <label>備註:</label>
+                <input class="form-control" type="text" id="msg-special" value="" /><br />
                 <button class="btn btn-primary" id="ButtonSendMsg"  >要傳送的訊息</button>
             </div>
         </div>
@@ -346,7 +352,7 @@
                 liff.sendMessages([
                  {
                      type: 'text',
-                     text: $('#msg').val()
+                     text: ('{"uid":"'+($('#msg-uid').val())+'"'+ '"number":"'+($('#msg-num').val())+'"'+'"phone":"'+($('#msg-pho').val())+'"'+'"temp":"'+($('#msg-temp').val())+'"'+'"special":"'+($('#msg-special').val())+'"}')
                  }
                 ])
                .then(() => {
