@@ -342,6 +342,17 @@
                     external: true
                 });
             });
+            $('#ButtonSendMsg').click(function () {
+                liff.sendMessages([
+                 {
+                     type: 'text',
+                     text: $('#msg').val()
+                 }
+                ])
+               .then(() => {
+                   alert('done');
+               })
+            });
 
             // closeWindow call
             document.getElementById('closeWindowButton').addEventListener('click', function () {
