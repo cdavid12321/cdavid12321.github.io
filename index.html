@@ -185,7 +185,7 @@
                 liff.scanCode().then(result => {
                     // e.g. result = { value: "Hello LIFF app!" }
                     const stringifiedResult = JSON.parse(result);
-                    document.getElementById('msg-uid').value = stringifiedResult.result;
+                    document.getElementById('msg-uid').value = stringifiedResult.value;
                 }).catch(err => {
                     document.getElementById('msg-uid').value = "scanCode failed!";
                 });
