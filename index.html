@@ -19,8 +19,9 @@
         }, 25);
     }
     else if (isMobile.android.device) {
+        window.location = "beyondplaza://home"
         setTimeout(function () {
-            window.location = 'https://play.google.com/store/apps/details?id=tw.com.beyondplaza.vip&hl=zh_TW&gl=US?openExternalBrowser=1';
+            window.location = 'https://play.google.com/store/apps/details?id=tw.com.beyondplaza.vip&hl=zh_TW&gl=US&openExternalBrowser=1';
         }, 25);
         // window.location = "intent://?MitakeAction=SO&STOCKID=" + id + "#Intent;scheme=touchstockfbs;package=com.fbs;end;";
     }});
