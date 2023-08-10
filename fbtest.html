@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <img id="line-share" src="https://www.fbs.com.tw/Content/images/sharelink/share_line.png" style="cursor:pointer;">
+    <script type="text/javascript">
+        $('#line-share').click(function (e) {
+            e.preventDefault();
+            var share = 'https://line.me/R/app/1656732953-Oe4W0ZQG?formid=1007&cardtype=open&P4=6166666666013627D4C4&utm_medium=client_share&utm_medium=share&openExternalBrowser=1';
+            window.open(share, '_blank');
+
+        });
+    </script>
+</body>
+</html>
