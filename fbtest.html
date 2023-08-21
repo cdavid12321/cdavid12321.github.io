@@ -8,10 +8,17 @@
 </head>
 <body>
     <img id="line-share" src="https://www.fbs.com.tw/Content/images/sharelink/share_line.png" style="cursor:pointer;">
+    <img id="message-share" src="https://www.fbs.com.tw/Content/images/sharelink/share_mes.png" style="cursor:pointer;">
     <script type="text/javascript">
         $('#line-share').click(function (e) {
             e.preventDefault();
             var share = 'https://line.me/R/app/1656732953-Oe4W0ZQG?formid=1007&cardtype=open&P4=6166666666013627D4C4&utm_medium=client_share&utm_campaign=share&openExternalBrowser=1';
+            window.open(share, '_blank');
+
+        });
+        $('#message-share').click(function (e) {
+            e.preventDefault();
+            var share = 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
             window.open(share, '_blank');
 
         });
