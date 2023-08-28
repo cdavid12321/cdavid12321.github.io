@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body style="text-align:center;">
+     <div class="sharelink_media">
+        <!-- <img id="line-share" src="/Content/images/sharelink/share_line.png" style="cursor:pointer;"> -->
+        <img id="message-share" src="https://www.fbs.com.tw/Content/images/sharelink/share_mes.png" style="cursor:pointer;">
+        <!-- <img id="copy-share" src="/Content/images/sharelink/share_copy.png" style="cursor:pointer;"> -->
+    </div>
+   <script>
+    //  IPHONE OR ANDROID DEVC will return 0
+    (function (i) { var e = /iPhone/i, n = /iPod/i, o = /iPad/i, t = /(?=.*\bAndroid\b)(?=.*\bMobile\b)/i, r = /Android/i, d = /BlackBerry/i, s = /Opera Mini/i, a = /IEMobile/i, b = /(?=.*\bFirefox\b)(?=.*\bMobile\b)/i, h = RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)", "i"), c = function (i, e) { return i.test(e) }, l = function (i) { var l = i || navigator.userAgent; this.apple = { phone: c(e, l), ipod: c(n, l), tablet: c(o, l), device: c(e, l) || c(n, l) || c(o, l) }, this.android = { phone: c(t, l), tablet: !c(t, l) && c(r, l), device: c(t, l) || c(r, l) }, this.other = { blackberry: c(d, l), opera: c(s, l), windows: c(a, l), firefox: c(b, l), device: c(d, l) || c(s, l) || c(a, l) || c(b, l) }, this.seven_inch = c(h, l), this.any = this.apple.device || this.android.device || this.other.device || this.seven_inch }, v = i.isMobile = new l; v.Class = l })(window);
+        if (!(isMobile.apple.device || isMobile.android.device))
+            $('img[id=message-share').attr('src', 'https://www.fbs.com.tw/Content/images/sharelink/share_mes.png');
+
+
+    $('#message-share').click(function (e) {
+        e.preventDefault();
+        var share = "";
+        if (isMobile.apple.device || isMobile.android.device) {
+            window.location = "fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4";
+            if (isMobile.apple.device) {
+                setTimeout(function () {
+                    window.location = "https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1";
+                }, 25);
+            }
+        }else {
+            share = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
+            window.open(share, '_blank');
+        }
+    });
+    
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</body>
+</html>
