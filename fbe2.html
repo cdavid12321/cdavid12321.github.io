@@ -20,10 +20,10 @@
         e.preventDefault();
         var share = "";
         if (isMobile.apple.device || isMobile.android.device) {
-            window.location = "fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4";
+            window.open('fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4', '_blank');
             if (isMobile.apple.device) {
                 setTimeout(function () {
-                    window.location = "https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1";
+                    window.open = ("https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1",'_blank');
                 }, 3000);
             }
         }else {
