@@ -22,8 +22,9 @@
         // if (!ShareCount('messager')) return;
         var share = "";
         if (isMobile.apple.device || isMobile.android.device) {
-            window.location = "fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4";
+            
             if (isMobile.apple.device) {
+                window.location = "fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4";
                 setTimeout(function () {
                     window.location = "https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4";
                 }, 25);
