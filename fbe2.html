@@ -20,27 +20,37 @@
     $('#message-share').click(function (e) {
         e.preventDefault();
         var share = "";
-        $('#app-check-frame').attr('src', 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4');
+        // $('#app-check-frame').attr('src', 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4');
         if (isMobile.apple.device || isMobile.android.device) {
-            // Check if the iframe successfully loaded
-            $('#app-check-frame').on('load', function() {
-                // If loaded, open the Messenger App
-                window.location.href = 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
-            });
-            // window.open('fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4', '_blank');
-            if (isMobile.apple.device) {
-                        // If iframe load failed after a delay, open backup link
-                setTimeout(function() {
+            var appCheckFrame = document.getElementById('app-check-frame');
+            appCheckFrame.src = 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
+
+            var checkInterval = setInterval(function() {
+                if (appCheckFrame.contentWindow.location.href === 'about:blank') {
+                    // Messenger App is not installed, open backup link
                     window.location.href = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1';
-                }, 3000); // Adjust the timeout as needed
-                // setTimeout(function () {
-                //     window.open = ("https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1",'_blank');
-                // }, 3000);
-            }
-        }else {
-            share = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
-            window.open(share, '_blank');
+                    clearInterval(checkInterval);
+                }
+            }, 100);
         }
+
+            // setTimeout(function() {
+            //     // If the interval hasn't cleared, open Messenger App
+            //     window.location.href = 'fb-messenger://user-thread/';
+            // }, 3000); // Adjust the timeout as needed
+
+            // window.open('fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4', '_blank');
+        //     if (isMobile.apple.device) {
+        //                 // If iframe load failed after a delay, open backup link
+
+        //         setTimeout(function () {
+        //             window.open = ("https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1",'_blank');
+        //         }, 3000);
+        //     }
+        // }else {
+        //     share = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
+        //     window.open(share, '_blank');
+        // }
     });
     
 </script>
