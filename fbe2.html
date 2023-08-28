@@ -13,44 +13,25 @@
    <script>
     //  IPHONE OR ANDROID DEVC will return 0
     (function (i) { var e = /iPhone/i, n = /iPod/i, o = /iPad/i, t = /(?=.*\bAndroid\b)(?=.*\bMobile\b)/i, r = /Android/i, d = /BlackBerry/i, s = /Opera Mini/i, a = /IEMobile/i, b = /(?=.*\bFirefox\b)(?=.*\bMobile\b)/i, h = RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)", "i"), c = function (i, e) { return i.test(e) }, l = function (i) { var l = i || navigator.userAgent; this.apple = { phone: c(e, l), ipod: c(n, l), tablet: c(o, l), device: c(e, l) || c(n, l) || c(o, l) }, this.android = { phone: c(t, l), tablet: !c(t, l) && c(r, l), device: c(t, l) || c(r, l) }, this.other = { blackberry: c(d, l), opera: c(s, l), windows: c(a, l), firefox: c(b, l), device: c(d, l) || c(s, l) || c(a, l) || c(b, l) }, this.seven_inch = c(h, l), this.any = this.apple.device || this.android.device || this.other.device || this.seven_inch }, v = i.isMobile = new l; v.Class = l })(window);
-        if (!(isMobile.apple.device || isMobile.android.device))
-            $('img[id=message-share').attr('src', 'https://www.fbs.com.tw/Content/images/sharelink/share_mes.png');
+    if (!(isMobile.apple.device || isMobile.android.device))
+        $('img[id=message-share').attr('src', 'https://www.fbs.com.tw/Content/images/sharelink/share_mes.png');
 
 
-    $('#message-share').click(function (e) {
+        $('#message-share').click(function (e) {
         e.preventDefault();
+        // if (!ShareCount('messager')) return;
         var share = "";
-        // $('#app-check-frame').attr('src', 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4');
         if (isMobile.apple.device || isMobile.android.device) {
-            var appCheckFrame = document.getElementById('app-check-frame');
-            appCheckFrame.src = 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
-
-            var checkInterval = setInterval(function() {
-                if (appCheckFrame.contentWindow.location.href === 'about:blank') {
-                    // Messenger App is not installed, open backup link
-                    window.location.href = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1';
-                    clearInterval(checkInterval);
-                }
-            }, 100);
+            window.location = "fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4";
+            if (isMobile.apple.device) {
+                setTimeout(function () {
+                    window.location = "https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4";
+                }, 25);
+            }
+        }else {
+            share = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4;
+            window.open(share, '_blank');
         }
-
-            // setTimeout(function() {
-            //     // If the interval hasn't cleared, open Messenger App
-            //     window.location.href = 'fb-messenger://user-thread/';
-            // }, 3000); // Adjust the timeout as needed
-
-            // window.open('fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4', '_blank');
-        //     if (isMobile.apple.device) {
-        //                 // If iframe load failed after a delay, open backup link
-
-        //         setTimeout(function () {
-        //             window.open = ("https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1",'_blank');
-        //         }, 3000);
-        //     }
-        // }else {
-        //     share = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
-        //     window.open(share, '_blank');
-        // }
     });
     
 </script>
