@@ -8,6 +8,7 @@
         <!-- <img id="line-share" src="/Content/images/sharelink/share_line.png" style="cursor:pointer;"> -->
         <img id="message-share" src="https://www.fbs.com.tw/Content/images/sharelink/share_mes.png" style="cursor:pointer;">
         <!-- <img id="copy-share" src="/Content/images/sharelink/share_copy.png" style="cursor:pointer;"> -->
+        <iframe id="app-check-frame" style="display: none;"></iframe>
     </div>
    <script>
     //  IPHONE OR ANDROID DEVC will return 0
@@ -19,12 +20,22 @@
     $('#message-share').click(function (e) {
         e.preventDefault();
         var share = "";
+        $('#app-check-frame').attr('src', 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4');
         if (isMobile.apple.device || isMobile.android.device) {
-            window.open('fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4', '_blank');
+            // Check if the iframe successfully loaded
+            $('#app-check-frame').on('load', function() {
+                // If loaded, open the Messenger App
+                window.location.href = 'fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
+            });
+            // window.open('fb-messenger://share?link=https://www.fbs.com.tw/h5w/6166666666013627D4C4', '_blank');
             if (isMobile.apple.device) {
-                setTimeout(function () {
-                    window.open = ("https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1",'_blank');
-                }, 3000);
+                        // If iframe load failed after a delay, open backup link
+                setTimeout(function() {
+                    window.location.href = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1';
+                }, 3000); // Adjust the timeout as needed
+                // setTimeout(function () {
+                //     window.open = ("https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4&openExternalBrowser=1",'_blank');
+                // }, 3000);
             }
         }else {
             share = 'https://www.facebook.com/sharer/sharer.php?u=https://www.fbs.com.tw/h5w/6166666666013627D4C4';
